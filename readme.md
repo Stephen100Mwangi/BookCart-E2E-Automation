@@ -1,8 +1,9 @@
 # BookCart E2E Test Automation
 
-[![Playwright](https://img.shields.io/badge/Playwright-2E2E2E?logo=playwright\&logoColor=white)](https://playwright.dev/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript\&logoColor=white)](https://www.typescriptlang.org/)
-[![Cucumber](https://img.shields.io/badge/Cucumber-23D96C?logo=cucumber\&logoColor=white)](https://cucumber.io/)
+[![Playwright](https://img.shields.io/badge/Playwright-2E2E2E?logo=playwright&logoColor=white)](https://playwright.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Cucumber](https://img.shields.io/badge/Cucumber-23D96C?logo=cucumber&logoColor=white)](https://cucumber.io/)
+[![Allure Report](https://img.shields.io/badge/Allure_Report-E6E6FA?logo=allure&logoColor=black)](https://allurereport.org/)
 
 An end-to-end test automation project for the [BookCart](https://bookcart.azurewebsites.net/) e-commerce application, built using **Playwright, TypeScript, Node.js, Cucumber, BDD, and Gherkin**.
 
@@ -16,13 +17,13 @@ The [project](https://roadmap.sh/projects/e2e-test-ecommerce-app) focuses on val
 
 The primary goal is to build a maintainable and reliable automation suite covering the application's critical user journeys:
 
-* User registration and authentication
-* Product search and navigation
-* Shopping cart management
-* Checkout workflow
-* API validation
-* Cross-browser compatibility
-* Visual regression testing
+- User registration and authentication
+- Product search and navigation
+- Shopping cart management
+- Checkout workflow
+- API validation
+- Cross-browser compatibility
+- Visual regression testing
 
 ---
 
@@ -78,15 +79,15 @@ The core test suite focuses on complete user journeys across the BookCart applic
 
 Planned coverage includes:
 
-* Registration
-* Login
-* Book search
-* Category navigation
-* Product selection
-* Add to cart
-* Update cart quantity
-* Remove from cart
-* Checkout
+- Registration
+- Login
+- Book search
+- Category navigation
+- Product selection
+- Add to cart
+- Update cart quantity
+- Remove from cart
+- Checkout
 
 ### API Testing
 
@@ -94,19 +95,19 @@ API-level testing will validate backend behavior independently from the UI.
 
 Focus areas include:
 
-* Endpoint availability
-* Request/response validation
-* Status codes
-* Response payloads
-* Error handling
+- Endpoint availability
+- Request/response validation
+- Status codes
+- Response payloads
+- Error handling
 
 ### Cross-Browser Testing
 
 The automation suite will be configured to validate application behavior across:
 
-* Chromium
-* Firefox
-* WebKit
+- Chromium
+- Firefox
+- WebKit
 
 ### Visual Testing
 
@@ -139,9 +140,9 @@ This approach helps bridge the gap between business requirements, QA, and automa
 
 Make sure the following are installed:
 
-* Node.js
-* npm
-* Git
+- Node.js
+- npm
+- Git
 
 ### Clone the repository
 
@@ -174,12 +175,12 @@ npx playwright test
 
 Test reporting will provide visibility into:
 
-* Passed tests
-* Failed tests
-* Execution duration
-* Test traces
-* Screenshots
-* Failure details
+- Passed tests
+- Failed tests
+- Execution duration
+- Test traces
+- Screenshots
+- Failure details
 
 Playwright's reporting and debugging capabilities will be used alongside Cucumber reporting as the framework evolves.
 
@@ -189,31 +190,31 @@ Playwright's reporting and debugging capabilities will be used alongside Cucumbe
 
 This project follows several QA automation best practices:
 
-* **Stable selectors** over fragile XPath/CSS selectors
-* **Dynamic waits** instead of fixed delays
-* **Meaningful assertions** for every scenario
-* **Independent tests** to prevent execution-order dependencies
-* **Reusable step definitions**
-* **Separation of test data and test logic**
-* **Maintainable page/component abstractions**
-* **Clear BDD scenarios**
-* **Regression-focused automation**
+- **Stable selectors** over fragile XPath/CSS selectors
+- **Dynamic waits** instead of fixed delays
+- **Meaningful assertions** for every scenario
+- **Independent tests** to prevent execution-order dependencies
+- **Reusable step definitions**
+- **Separation of test data and test logic**
+- **Maintainable page/component abstractions**
+- **Clear BDD scenarios**
+- **Regression-focused automation**
 
 ---
 
 ## 🚧 Roadmap
 
-* [x] Project setup
-* [x] Playwright + TypeScript foundation
-* [ ] E2E authentication tests
-* [ ] Product search tests
-* [ ] Shopping cart tests
-* [ ] Checkout tests
-* [ ] API test suite
-* [ ] Cross-browser execution
-* [ ] Visual regression testing
-* [ ] Automated reporting
-* [ ] CI/CD with GitHub Actions
+- [x] Project setup
+- [x] Playwright + TypeScript foundation
+- [ ] E2E authentication tests
+- [ ] Product search tests
+- [ ] Shopping cart tests
+- [ ] Checkout tests
+- [ ] API test suite
+- [ ] Cross-browser execution
+- [ ] Visual regression testing
+- [ ] Automated reporting
+- [ ] CI/CD with GitHub Actions
 
 ---
 
