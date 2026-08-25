@@ -18,7 +18,7 @@ test.describe("Login Page", () => {
       loginCredentials.validPassword,
     );
     await page.click('button[type="submit"]');
-    await expect(page.locator("mat-card-title")).toHaveText("Dashboard");
+    await expect.soft(page.locator("mat-card-title")).toHaveText("Dashboard");
   });
 
   test("should deny login with invalid credentials", async ({ page }) => {
