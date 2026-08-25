@@ -6,7 +6,7 @@
 
 An end-to-end test automation project for the [BookCart](https://bookcart.azurewebsites.net/) e-commerce application, built using **Playwright, TypeScript, Node.js, Cucumber, BDD, and Gherkin**.
 
-The project focuses on validating critical customer journeys while demonstrating scalable QA automation practices, including API testing, cross-browser testing, visual regression testing, and maintainable BDD test design.
+The [project](https://roadmap.sh/projects/e2e-test-ecommerce-app) focuses on validating critical customer journeys while demonstrating scalable QA automation practices, including API testing, cross-browser testing, visual regression testing, and maintainable BDD test design.
 
 > **Status:** 🚧 Work in Progress
 
