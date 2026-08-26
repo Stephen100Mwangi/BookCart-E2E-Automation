@@ -182,7 +182,122 @@ Test reporting will provide visibility into:
 - Screenshots
 - Failure details
 
+### Playwright reporting
+
 Playwright's reporting and debugging capabilities will be used alongside Cucumber reporting as the framework evolves.
+
+### Allure Report
+
+[Allure Report](https://allurereport.org/) is an open-source, framework-agnostic test result visualization tool that transforms raw automated test data into clear, interactive HTML reports.
+
+Using Allure Report
+For this project we are using Playwright + Typescript
+
+1. Install Allure
+   On the directory where your tests run
+   `npm install --save-dev allure-playwright`
+   This install Allure Report on your current project as a dev dependency
+
+2. Configure Playwright
+   In ` playwright.config.ts` file
+
+`
+import { defineConfig } from '@playwright/test';
+
+export default defineConfig({
+reporter: [
+['list'],
+[
+'allure-playwright',
+{
+resultsDir: 'allure-results',
+},
+],
+],
+});
+`This lets you keep our normal Playwright output while also generating Allure results. The`allure-results` directory is created when the tests run.
+
+3. Run your tests
+
+- Headless -`npx playwright test`
+- UI - `npx playwright test --ui`
+- Specific file `npx playwright test <path>`
+  When the tests run, we now have a new folder at the root of our e2e directory. `allure-results` containing the raw Allure test data.
+
+4. Generate the report
+   With Allure 3, the latest version, run the command
+   `npx allure generate ./allure-results`
+   ... then open it using the command `npx allure open ./allure-report` OR `npx allure serve ./allure-results`
+
+`npx allure serve ./allure-results` generates the report and opens it.
+
+![Allure Report](image.png)
+
+5. Add useful information to your tests
+   Allure supports metadata such as epic, feature, story, severity, owner, tags, parameters and links, as well as nested steps.
+
+import { test, expect } from '@playwright/test';
+import \* as allure from 'allure-js-commons';
+
+```
+test('User can login successfully', async ({ page }) => {
+
+  await allure.epic('BookCart E-Commerce');
+
+  await allure.feature('Authentication');
+
+  await allure.story('User Login');
+
+  await allure.severity('critical');
+
+  await allure.step('Navigate to login page', async () => {
+    await page.goto('https://bookcart.azurewebsites.net/login');
+  });
+
+  await allure.step('Enter credentials', async () => {
+    await page.getByLabel('Username').fill('testuser');
+    await page.getByLabel('Password').fill('password');
+  });
+
+  await allure.step('Submit login form', async () => {
+    await page.getByRole('button', { name: 'Login' }).click();
+  });
+
+  await expect(page).toHaveURL(/home/);
+});
+```
+
+6. Screenshots and traces
+   Playwright traces can automatically be recognized by Allure when tracing is enabled.
+   On `playwright.config.ts` file, we can have
+
+```
+use: {
+  trace: 'retain-on-failure',
+}
+```
+
+... or attach a screenshot
+
+```
+await allure.attachment(
+  'Login Screenshot',
+  await page.screenshot(),
+  {
+    contentType: 'image/png',
+  }
+);
+```
+
+That gives us a report where a failed test can contain:
+
+❌ Failed assertion
+📸 Screenshot
+🔍 Playwright trace
+📝 Test steps
+🏷️ Severity
+📂 Feature/story
+⏱️ Execution information
 
 ---
 
@@ -206,10 +321,10 @@ This project follows several QA automation best practices:
 
 - [x] Project setup
 - [x] Playwright + TypeScript foundation
-- [ ] E2E authentication tests
-- [ ] Product search tests
-- [ ] Shopping cart tests
-- [ ] Checkout tests
+- [x] E2E authentication tests
+- [x] Product search tests
+- [x] Shopping cart tests
+- [x] Checkout tests
 - [ ] API test suite
 - [ ] Cross-browser execution
 - [ ] Visual regression testing
