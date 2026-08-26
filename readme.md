@@ -190,7 +190,8 @@ Playwright's reporting and debugging capabilities will be used alongside Cucumbe
 
 [Allure Report](https://allurereport.org/) is an open-source, framework-agnostic test result visualization tool that transforms raw automated test data into clear, interactive HTML reports.
 
-Using Allure Report
+* Using Allure Report
+
 For this project we are using Playwright + Typescript
 
 1. Install Allure
@@ -201,7 +202,7 @@ For this project we are using Playwright + Typescript
 2. Configure Playwright
    In ` playwright.config.ts` file
 
-`
+```javascript
 import { defineConfig } from '@playwright/test';
 
 export default defineConfig({
@@ -215,7 +216,9 @@ resultsDir: 'allure-results',
 ],
 ],
 });
-`This lets you keep our normal Playwright output while also generating Allure results. The`allure-results` directory is created when the tests run.
+```
+
+This lets you keep our normal Playwright output while also generating Allure results. The`allure-results` directory is created when the tests run.
 
 3. Run your tests
 
@@ -225,9 +228,9 @@ resultsDir: 'allure-results',
   When the tests run, we now have a new folder at the root of our e2e directory. `allure-results` containing the raw Allure test data.
 
 4. Generate the report
-   With Allure 3, the latest version, run the command
-   `npx allure generate ./allure-results`
-   ... then open it using the command `npx allure open ./allure-report` OR `npx allure serve ./allure-results`
+   With Allure 3, the latest version, run the command;
+   `npx allure generate ./allure-results` then open it using the command `npx allure open .allure-report` 
+  OR `npx allure serve ./allure-results`
 
 `npx allure serve ./allure-results` generates the report and opens it.
 
@@ -236,10 +239,10 @@ resultsDir: 'allure-results',
 5. Add useful information to your tests
    Allure supports metadata such as epic, feature, story, severity, owner, tags, parameters and links, as well as nested steps.
 
+```typescript
 import { test, expect } from '@playwright/test';
 import \* as allure from 'allure-js-commons';
 
-```
 test('User can login successfully', async ({ page }) => {
 
   await allure.epic('BookCart E-Commerce');
@@ -271,7 +274,7 @@ test('User can login successfully', async ({ page }) => {
    Playwright traces can automatically be recognized by Allure when tracing is enabled.
    On `playwright.config.ts` file, we can have
 
-```
+```javascript
 use: {
   trace: 'retain-on-failure',
 }
@@ -279,7 +282,7 @@ use: {
 
 ... or attach a screenshot
 
-```
+```javascript
 await allure.attachment(
   'Login Screenshot',
   await page.screenshot(),
