@@ -1,0 +1,24 @@
+name: CD - Deploy
+
+on:
+  workflow_run:
+    workflows: ["CI - Build & Test"]
+    types:
+      - completed
+    branches:
+      - main
+
+jobs:
+  deploy:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Deploy application
+        run: |
+          echo "Deploying application..."
+          # Deployment command goes here
