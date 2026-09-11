@@ -22,3 +22,4 @@ jobs:
         run: |
           echo "Deploying application..."
           # Deployment command goes here
+          
