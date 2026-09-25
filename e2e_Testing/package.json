@@ -9,6 +9,7 @@
     "lint": "eslint .",
     "test:unit": "jest",
     "test:bdd": "cucumber-js",
+    "test:playwright": "npx playwright test",
     "allure:generate": "allure generate ./allure-results -o ./allure-report --clean",
     "allure:open": "allure open ./allure-report"
   },
